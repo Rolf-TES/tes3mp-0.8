@@ -59,105 +59,104 @@ local maxSecurity = 100
 customEventHooks.registerValidator("OnPlayerCellChange", function(eventStatus, pid)
     if Players[pid] ~= nil and Players[pid]:IsLoggedIn() then
         -- Level:
-        if tes3mp.GetLevel(pid) > maxLevel and Players[pid].data.stats.level > maxLevel then
+        while (tes3mp.GetLevel(pid) > maxLevel and Players[pid].data.stats.level > maxLevel) do
             Players[pid].data.stats.level = maxLevel
             Players[pid].data.stats.levelProgress = 0
             Players[pid]:LoadLevel()
         end
         -- Stats:
-        repeat
-        if Players[pid].data.stats.healthBase > maxHealth then
-            Players[pid].data.stats.healthBase = maxHealth
-            Players[pid].data.stats.healthCurrent = maxHealth
-        elseif Players[pid].data.stats.magickaBase > maxMagicka then
-            Players[pid].data.stats.magickaBase = maxMagicka
-            Players[pid].data.stats.magickaCurrent = maxMagicka
-        elseif Players[pid].data.stats.fatigueBase > maxFatigue then
-            Players[pid].data.stats.fatigueBase = maxFatigue
-            Players[pid].data.stats.fatigueCurrent = maxFatigue
+        while (Players[pid].data.stats.healthBase > maxHealth or Players[pid].data.stats.magickaBase > maxMagicka or Players[pid].data.stats.fatigueBase > maxFatigue) do
+            if Players[pid].data.stats.healthBase > maxHealth then
+                Players[pid].data.stats.healthBase = maxHealth
+                Players[pid].data.stats.healthCurrent = maxHealth
+            elseif Players[pid].data.stats.magickaBase > maxMagicka then
+                Players[pid].data.stats.magickaBase = maxMagicka
+                Players[pid].data.stats.magickaCurrent = maxMagicka
+            elseif Players[pid].data.stats.fatigueBase > maxFatigue then
+                Players[pid].data.stats.fatigueBase = maxFatigue
+                Players[pid].data.stats.fatigueCurrent = maxFatigue
+            end
+            Players[pid]:LoadStatsDynamic()
         end
-        Players[pid]:LoadStatsDynamic()
-        until (Players[pid].data.stats.healthBase <= maxHealth and Players[pid].data.stats.magickaBase <= maxMagicka and Players[pid].data.stats.fatigueBase <= maxFatigue)
         -- Attributes:
-        repeat
-        if Players[pid].data.attributes.Strength.base > maxStrength then
-            Players[pid].data.attributes.Strength.base = maxStrength
-        elseif Players[pid].data.attributes.Agility.base > maxAgility then
-            Players[pid].data.attributes.Agility.base = maxAgility
-        elseif Players[pid].data.attributes.Personality.base > maxPersonality then
-            Players[pid].data.attributes.Personality.base = maxPersonality
-        elseif Players[pid].data.attributes.Speed.base > maxSpeed then
-            Players[pid].data.attributes.Speed.base = maxSpeed
-        elseif Players[pid].data.attributes.Luck.base > maxLuck then
-            Players[pid].data.attributes.Luck.base = maxLuck
-        elseif Players[pid].data.attributes.Endurance.base > maxEndurance then
-            Players[pid].data.attributes.Endurance.base = maxEndurance
-        elseif Players[pid].data.attributes.Intelligence.base > maxIntelligence then
-            Players[pid].data.attributes.Intelligence.base = maxIntelligence
-        elseif Players[pid].data.attributes.Willpower.base > maxWillpower then
-            Players[pid].data.attributes.Willpower.base = maxWillpower
+        while (Players[pid].data.attributes.Strength.base > maxStrength or Players[pid].data.attributes.Agility.base > maxAgility or Players[pid].data.attributes.Personality.base > maxPersonality or Players[pid].data.attributes.Speed.base > maxSpeed or Players[pid].data.attributes.Luck.base > maxLuck or Players[pid].data.attributes.Endurance.base > maxEndurance or Players[pid].data.attributes.Intelligence.base > maxIntelligence or Players[pid].data.attributes.Willpower.base > maxWillpower) do
+            if Players[pid].data.attributes.Strength.base > maxStrength then
+                Players[pid].data.attributes.Strength.base = maxStrength
+            elseif Players[pid].data.attributes.Agility.base > maxAgility then
+                Players[pid].data.attributes.Agility.base = maxAgility
+            elseif Players[pid].data.attributes.Personality.base > maxPersonality then
+                Players[pid].data.attributes.Personality.base = maxPersonality
+            elseif Players[pid].data.attributes.Speed.base > maxSpeed then
+                Players[pid].data.attributes.Speed.base = maxSpeed
+            elseif Players[pid].data.attributes.Luck.base > maxLuck then
+                Players[pid].data.attributes.Luck.base = maxLuck
+            elseif Players[pid].data.attributes.Endurance.base > maxEndurance then
+                Players[pid].data.attributes.Endurance.base = maxEndurance
+            elseif Players[pid].data.attributes.Intelligence.base > maxIntelligence then
+                Players[pid].data.attributes.Intelligence.base = maxIntelligence
+            elseif Players[pid].data.attributes.Willpower.base > maxWillpower then
+                Players[pid].data.attributes.Willpower.base = maxWillpower
+            end
+            Players[pid]:LoadAttributes()
         end
-        Players[pid]:LoadAttributes()
-        until (Players[pid].data.attributes.Strength.base <= maxStrength and Players[pid].data.attributes.Agility.base <= maxAgility and Players[pid].data.attributes.Personality.base <= maxPersonality and Players[pid].data.attributes.Speed.base <= maxSpeed and Players[pid].data.attributes.Luck.base <= maxLuck and Players[pid].data.attributes.Endurance.base <= maxEndurance and Players[pid].data.attributes.Intelligence.base <= maxIntelligence and Players[pid].data.attributes.Willpower.base <= maxWillpower)
         -- Skills:
-        repeat
-        if Players[pid].data.skills.Heavyarmor.base > maxHeavyArmor then
-            Players[pid].data.skills.Heavyarmor.base = maxHeavyArmor
-        elseif Players[pid].data.skills.Mediumarmor.base > maxMediumArmor then
-            Players[pid].data.skills.Mediumarmor.base = maxMediumArmor
-        elseif Players[pid].data.skills.Lightarmor.base > maxLightArmor then
-            Players[pid].data.skills.Lightarmor.base = maxLightArmor
-        elseif Players[pid].data.skills.Unarmored.base > maxUnarmored then
-            Players[pid].data.skills.Unarmored.base = maxUnarmored
-        elseif Players[pid].data.skills.Spear.base > maxSpear then
-            Players[pid].data.skills.Spear.base = maxSpear
-        elseif Players[pid].data.skills.Axe.base > maxAxe then
-            Players[pid].data.skills.Axe.base = maxAxe
-        elseif Players[pid].data.skills.Bluntweapon.base > maxBluntWeapon then
-            Players[pid].data.skills.Bluntweapon.base = maxBluntWeapon
-        elseif Players[pid].data.skills.Longblade.base > maxLongBlade then
-            Players[pid].data.skills.Longblade.base = maxLongBlade
-        elseif Players[pid].data.skills.Shortblade.base > maxShortBlade then
-            Players[pid].data.skills.Shortblade.base = maxShortBlade
-        elseif Players[pid].data.skills.Marksman.base > maxMarksman then
-            Players[pid].data.skills.Marksman.base = maxMarksman
-        elseif Players[pid].data.skills.Handtohand.base > maxHandtoHand then
-            Players[pid].data.skills.Handtohand.base = maxHandtoHand
-        elseif Players[pid].data.skills.Block.base > maxBlock then
-            Players[pid].data.skills.Block.base = maxBlock
-        elseif Players[pid].data.skills.Illusion.base > maxIllusion then
-            Players[pid].data.skills.Illusion.base = maxIllusion
-        elseif Players[pid].data.skills.Conjuration.base > maxConjuration then
-            Players[pid].data.skills.Conjuration.base = maxConjuration
-        elseif Players[pid].data.skills.Alteration.base > maxAlteration then
-            Players[pid].data.skills.Alteration.base = maxAlteration
-        elseif Players[pid].data.skills.Destruction.base > maxDestruction then
-            Players[pid].data.skills.Destruction.base = maxDestruction
-        elseif Players[pid].data.skills.Mysticism.base > maxMysticism then
-            Players[pid].data.skills.Mysticism.base = maxMysticism
-        elseif Players[pid].data.skills.Restoration.base > maxRestoration then
-            Players[pid].data.skills.Restoration.base = maxRestoration
-        elseif Players[pid].data.skills.Enchant.base > maxEnchant then
-            Players[pid].data.skills.Enchant.base = maxEnchant
-        elseif Players[pid].data.skills.Alchemy.base > maxAlchemy then
-            Players[pid].data.skills.Alchemy.base = maxAlchemy
-        elseif Players[pid].data.skills.Acrobatics.base > maxAcrobatics then
-            Players[pid].data.skills.Acrobatics.base = maxAcrobatics
-        elseif Players[pid].data.skills.Athletics.base > maxAthletics then
-            Players[pid].data.skills.Athletics.base = maxAthletics
-        elseif Players[pid].data.skills.Sneak.base > maxSneak then
-            Players[pid].data.skills.Sneak.base = maxSneak
-        elseif Players[pid].data.skills.Armorer.base > maxArmorer then
-            Players[pid].data.skills.Armorer.base = maxArmorer
-        elseif Players[pid].data.skills.Mercantile.base > maxMercantile then
-            Players[pid].data.skills.Mercantile.base = maxMercantile
-        elseif Players[pid].data.skills.Speechcraft.base > maxSpeechcraft then
-            Players[pid].data.skills.Speechcraft.base = maxSpeechcraft
-        elseif Players[pid].data.skills.Security.base > maxSecurity then
-            Players[pid].data.skills.Security.base = maxSecurity
+        while (Players[pid].data.skills.Heavyarmor.base > maxHeavyArmor or Players[pid].data.skills.Mediumarmor.base > maxMediumArmor or Players[pid].data.skills.Lightarmor.base > maxLightArmor or Players[pid].data.skills.Unarmored.base > maxUnarmored or Players[pid].data.skills.Spear.base > maxSpear or Players[pid].data.skills.Axe.base > maxAxe or Players[pid].data.skills.Bluntweapon.base > maxBluntWeapon or Players[pid].data.skills.Longblade.base > maxLongBlade or Players[pid].data.skills.Shortblade.base > maxShortBlade or Players[pid].data.skills.Marksman.base > maxMarksman or Players[pid].data.skills.Handtohand.base > maxHandtoHand or Players[pid].data.skills.Block.base > maxBlock or Players[pid].data.skills.Illusion.base > maxIllusion or Players[pid].data.skills.Conjuration.base > maxConjuration or Players[pid].data.skills.Alteration.base > maxAlteration or Players[pid].data.skills.Destruction.base > maxDestruction or Players[pid].data.skills.Mysticism.base > maxMysticism or Players[pid].data.skills.Restoration.base > maxRestoration or Players[pid].data.skills.Enchant.base > maxEnchant or Players[pid].data.skills.Alchemy.base > maxAlchemy or Players[pid].data.skills.Acrobatics.base > maxAcrobatics or Players[pid].data.skills.Athletics.base > maxAthletics or Players[pid].data.skills.Sneak.base > maxSneak or Players[pid].data.skills.Armorer.base > maxArmorer or Players[pid].data.skills.Mercantile.base > maxMercantile or Players[pid].data.skills.Speechcraft.base > maxSpeechcraft or Players[pid].data.skills.Security.base > maxSecurity) do
+            if Players[pid].data.skills.Heavyarmor.base > maxHeavyArmor then
+                Players[pid].data.skills.Heavyarmor.base = maxHeavyArmor
+            elseif Players[pid].data.skills.Mediumarmor.base > maxMediumArmor then
+                Players[pid].data.skills.Mediumarmor.base = maxMediumArmor
+            elseif Players[pid].data.skills.Lightarmor.base > maxLightArmor then
+                Players[pid].data.skills.Lightarmor.base = maxLightArmor
+            elseif Players[pid].data.skills.Unarmored.base > maxUnarmored then
+                Players[pid].data.skills.Unarmored.base = maxUnarmored
+            elseif Players[pid].data.skills.Spear.base > maxSpear then
+                Players[pid].data.skills.Spear.base = maxSpear
+            elseif Players[pid].data.skills.Axe.base > maxAxe then
+                Players[pid].data.skills.Axe.base = maxAxe
+            elseif Players[pid].data.skills.Bluntweapon.base > maxBluntWeapon then
+                Players[pid].data.skills.Bluntweapon.base = maxBluntWeapon
+            elseif Players[pid].data.skills.Longblade.base > maxLongBlade then
+                Players[pid].data.skills.Longblade.base = maxLongBlade
+            elseif Players[pid].data.skills.Shortblade.base > maxShortBlade then
+                Players[pid].data.skills.Shortblade.base = maxShortBlade
+            elseif Players[pid].data.skills.Marksman.base > maxMarksman then
+                Players[pid].data.skills.Marksman.base = maxMarksman
+            elseif Players[pid].data.skills.Handtohand.base > maxHandtoHand then
+                Players[pid].data.skills.Handtohand.base = maxHandtoHand
+            elseif Players[pid].data.skills.Block.base > maxBlock then
+                Players[pid].data.skills.Block.base = maxBlock
+            elseif Players[pid].data.skills.Illusion.base > maxIllusion then
+                Players[pid].data.skills.Illusion.base = maxIllusion
+            elseif Players[pid].data.skills.Conjuration.base > maxConjuration then
+                Players[pid].data.skills.Conjuration.base = maxConjuration
+            elseif Players[pid].data.skills.Alteration.base > maxAlteration then
+                Players[pid].data.skills.Alteration.base = maxAlteration
+            elseif Players[pid].data.skills.Destruction.base > maxDestruction then
+                Players[pid].data.skills.Destruction.base = maxDestruction
+            elseif Players[pid].data.skills.Mysticism.base > maxMysticism then
+                Players[pid].data.skills.Mysticism.base = maxMysticism
+            elseif Players[pid].data.skills.Restoration.base > maxRestoration then
+                Players[pid].data.skills.Restoration.base = maxRestoration
+            elseif Players[pid].data.skills.Enchant.base > maxEnchant then
+                Players[pid].data.skills.Enchant.base = maxEnchant
+            elseif Players[pid].data.skills.Alchemy.base > maxAlchemy then
+                Players[pid].data.skills.Alchemy.base = maxAlchemy
+            elseif Players[pid].data.skills.Acrobatics.base > maxAcrobatics then
+                Players[pid].data.skills.Acrobatics.base = maxAcrobatics
+            elseif Players[pid].data.skills.Athletics.base > maxAthletics then
+                Players[pid].data.skills.Athletics.base = maxAthletics
+            elseif Players[pid].data.skills.Sneak.base > maxSneak then
+                Players[pid].data.skills.Sneak.base = maxSneak
+            elseif Players[pid].data.skills.Armorer.base > maxArmorer then
+                Players[pid].data.skills.Armorer.base = maxArmorer
+            elseif Players[pid].data.skills.Mercantile.base > maxMercantile then
+                Players[pid].data.skills.Mercantile.base = maxMercantile
+            elseif Players[pid].data.skills.Speechcraft.base > maxSpeechcraft then
+                Players[pid].data.skills.Speechcraft.base = maxSpeechcraft
+            elseif Players[pid].data.skills.Security.base > maxSecurity then
+                Players[pid].data.skills.Security.base = maxSecurity
+            end
+            Players[pid]:LoadSkills()
         end
-        Players[pid]:LoadSkills()
-        until (Players[pid].data.skills.Heavyarmor.base <= maxHeavyArmor and Players[pid].data.skills.Mediumarmor.base <= maxMediumArmor and Players[pid].data.skills.Lightarmor.base <= maxLightArmor and Players[pid].data.skills.Unarmored.base <= maxUnarmored and Players[pid].data.skills.Spear.base <= maxSpear and Players[pid].data.skills.Axe.base <= maxAxe and Players[pid].data.skills.Bluntweapon.base <= maxBluntWeapon and Players[pid].data.skills.Longblade.base <= maxLongBlade and Players[pid].data.skills.Shortblade.base <= maxShortBlade and Players[pid].data.skills.Marksman.base <= maxMarksman and Players[pid].data.skills.Handtohand.base <= maxHandtoHand and Players[pid].data.skills.Block.base <= maxBlock and Players[pid].data.skills.Illusion.base <= maxIllusion and Players[pid].data.skills.Conjuration.base <= maxConjuration and Players[pid].data.skills.Alteration.base <= maxAlteration and Players[pid].data.skills.Destruction.base <= maxDestruction and Players[pid].data.skills.Mysticism.base <= maxMysticism and Players[pid].data.skills.Restoration.base <= maxRestoration and Players[pid].data.skills.Enchant.base <= maxEnchant and Players[pid].data.skills.Alchemy.base <= maxAlchemy
-        and Players[pid].data.skills.Acrobatics.base <= maxAcrobatics and Players[pid].data.skills.Athletics.base <= maxAthletics and Players[pid].data.skills.Sneak.base <= maxSneak and Players[pid].data.skills.Armorer.base <= maxArmorer and Players[pid].data.skills.Mercantile.base <= maxMercantile and Players[pid].data.skills.Speechcraft.base <= maxSpeechcraft and Players[pid].data.skills.Security.base <= maxSecurity)
     end
 end)
