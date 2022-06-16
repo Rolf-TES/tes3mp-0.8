@@ -78,7 +78,7 @@ customEventHooks.registerValidator("OnPlayerCellChange", function(eventStatus, p
         Players[pid]:LoadStatsDynamic()
         -- Attributes:
         if Players[pid].data.attributes.Strength.base > maxStrength then
-            Players[pid].data.attributes.Strength.base = maxStrength 
+            Players[pid].data.attributes.Strength.base = maxStrength
         elseif Players[pid].data.attributes.Agility.base > maxAgility then
             Players[pid].data.attributes.Agility.base = maxAgility
         elseif Players[pid].data.attributes.Personality.base > maxPersonality then

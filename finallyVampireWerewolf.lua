@@ -1,11 +1,11 @@
 --[[
-Writen by 'Rolf' to TES3MP 8.0.
+Writen by 'Rolf' to TES3MP 8.1 and 8.0.
 
-Description: Very simple script which fixes the impossibility to become vampire or werewolf (some times) without commands (in TES3MP); executing the appropiate commands whenever a player gets infected by Porphyric Hemophilia or Sanies Lupinus.
+Description: Very simple script which fixes the impossibility to become vampire or werewolf (some times) without commands in TES3MP; executing the appropiate commands whenever a player gets infected by Porphyric Hemophilia or Sanies Lupinus.
 
 Installation Steps:
 1. Place this file inside 'server\scripts\custom' folder, located in your TES3MP installation directory.
-2. Open your 'customScripts.lua' file ('server\scripts') in a text editor, and write on it the next line: require("custom.finallyVampireWerewolf")
+2. Open your 'customScripts.lua' file ('server\scripts') in a text editor, and write on it the next line: require("custom/finallyVampireWerewolf")
 3. Save the changes and close it.
 --]]
 
