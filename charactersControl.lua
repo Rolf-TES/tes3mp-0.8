@@ -65,6 +65,7 @@ customEventHooks.registerValidator("OnPlayerCellChange", function(eventStatus, p
             Players[pid]:LoadLevel()
         end
         -- Stats:
+        repeat
         if Players[pid].data.stats.healthBase > maxHealth then
             Players[pid].data.stats.healthBase = maxHealth
             Players[pid].data.stats.healthCurrent = maxHealth
@@ -76,7 +77,9 @@ customEventHooks.registerValidator("OnPlayerCellChange", function(eventStatus, p
             Players[pid].data.stats.fatigueCurrent = maxFatigue
         end
         Players[pid]:LoadStatsDynamic()
+        until (Players[pid].data.stats.healthBase <= maxHealth and Players[pid].data.stats.magickaBase <= maxMagicka and Players[pid].data.stats.fatigueBase <= maxFatigue)
         -- Attributes:
+        repeat
         if Players[pid].data.attributes.Strength.base > maxStrength then
             Players[pid].data.attributes.Strength.base = maxStrength
         elseif Players[pid].data.attributes.Agility.base > maxAgility then
@@ -95,7 +98,9 @@ customEventHooks.registerValidator("OnPlayerCellChange", function(eventStatus, p
             Players[pid].data.attributes.Willpower.base = maxWillpower
         end
         Players[pid]:LoadAttributes()
+        until (Players[pid].data.attributes.Strength.base <= maxStrength and Players[pid].data.attributes.Agility.base <= maxAgility and Players[pid].data.attributes.Personality.base <= maxPersonality and Players[pid].data.attributes.Speed.base <= maxSpeed and Players[pid].data.attributes.Luck.base <= maxLuck and Players[pid].data.attributes.Endurance.base <= maxEndurance and Players[pid].data.attributes.Intelligence.base <= maxIntelligence and Players[pid].data.attributes.Willpower.base <= maxWillpower)
         -- Skills:
+        repeat
         if Players[pid].data.skills.Heavyarmor.base > maxHeavyArmor then
             Players[pid].data.skills.Heavyarmor.base = maxHeavyArmor
         elseif Players[pid].data.skills.Mediumarmor.base > maxMediumArmor then
@@ -152,5 +157,7 @@ customEventHooks.registerValidator("OnPlayerCellChange", function(eventStatus, p
             Players[pid].data.skills.Security.base = maxSecurity
         end
         Players[pid]:LoadSkills()
+        until (Players[pid].data.skills.Heavyarmor.base <= maxHeavyArmor and Players[pid].data.skills.Mediumarmor.base <= maxMediumArmor and Players[pid].data.skills.Lightarmor.base <= maxLightArmor and Players[pid].data.skills.Unarmored.base <= maxUnarmored and Players[pid].data.skills.Spear.base <= maxSpear and Players[pid].data.skills.Axe.base <= maxAxe and Players[pid].data.skills.Bluntweapon.base <= maxBluntWeapon and Players[pid].data.skills.Longblade.base <= maxLongBlade and Players[pid].data.skills.Shortblade.base <= maxShortBlade and Players[pid].data.skills.Marksman.base <= maxMarksman and Players[pid].data.skills.Handtohand.base <= maxHandtoHand and Players[pid].data.skills.Block.base <= maxBlock and Players[pid].data.skills.Illusion.base <= maxIllusion and Players[pid].data.skills.Conjuration.base <= maxConjuration and Players[pid].data.skills.Alteration.base <= maxAlteration and Players[pid].data.skills.Destruction.base <= maxDestruction and Players[pid].data.skills.Mysticism.base <= maxMysticism and Players[pid].data.skills.Restoration.base <= maxRestoration and Players[pid].data.skills.Enchant.base <= maxEnchant and Players[pid].data.skills.Alchemy.base <= maxAlchemy
+        and Players[pid].data.skills.Acrobatics.base <= maxAcrobatics and Players[pid].data.skills.Athletics.base <= maxAthletics and Players[pid].data.skills.Sneak.base <= maxSneak and Players[pid].data.skills.Armorer.base <= maxArmorer and Players[pid].data.skills.Mercantile.base <= maxMercantile and Players[pid].data.skills.Speechcraft.base <= maxSpeechcraft and Players[pid].data.skills.Security.base <= maxSecurity)
     end
 end)
