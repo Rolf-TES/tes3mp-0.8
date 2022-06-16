@@ -1,5 +1,5 @@
 --[[
-Writen by 'Rolf' to TES3MP 8.0.
+Writen by 'Rolf' to TES3MP 8.1 and 8.0.
 
 Description: Script that provides the capacity to adjust (cap or allow) attributes, skills and level to a certain number, due to the TES3MP configuration, that do not provide options to modify individually each thing i mentioned before.
 It does not level up characters, only establishes the level and points of all basic static aspects of a character, and checks to ensure that no one exceeds it.
