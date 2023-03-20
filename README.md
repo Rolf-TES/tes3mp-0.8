@@ -8,4 +8,4 @@ do whatever you want as long as you mention that the original work is mine.
 
 -- finallyVampireWerewolf: To make everyone can become a vampire or a werewolf without console commands.
 
--- simplyRegenMagicka: A simpler way to regenerate magicka in players and adjust the amount of regeneration and its timing.
+-- simplyRegenMagicka: A simpler way to add players magicka regeneration and adjust the amount of regeneration and its timing.
