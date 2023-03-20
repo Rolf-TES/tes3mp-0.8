@@ -1,7 +1,7 @@
 --[[
 Writen by 'Rolf' to TES3MP 0.8.0 and 0.8.1.
 
-Description: Very simple script that constantly regenerates 1 point of magicka to the players.
+Description: Very simple script that constantly regenerates 1 point of magicka to all the players.
 
 Installation Steps:
 1. Place this file inside 'server\scripts\custom' folder, located in your TES3MP installation directory.
