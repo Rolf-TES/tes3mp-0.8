@@ -5,7 +5,7 @@ Description: Very simple script that constantly regenerates 1 point of magicka t
 
 Installation Steps:
 1. Place this file inside 'server\scripts\custom' folder, located in your TES3MP installation directory.
-2. Open your 'customScripts.lua' file ('server\scripts') in a text editor, and write on it the next line: require("custom/SimplyRegenMagickaka")
+2. Open your 'customScripts.lua' file ('server\scripts') in a text editor, and write on it the next line: require("custom/simplyRegenMagicka")
 3. Save the changes and close it.
 --]]
 --
