@@ -9,19 +9,39 @@ Installation Steps:
 3. Save the changes and close it.
 --]]
 --
-local delay = 1 -- Time delay in seconds. Make it larger or smaller to change the regeneration to a slower or faster magicka regeneration respectively.
+local delay = 1 -- Time delay in seconds. Make it larger or smaller to change to a slower or faster magicka regeneration respectively.
 local amount = 1 -- Amount in numbers of magicka that is added to the player's current magicka (quantity of regeneration).
+local players = {}
 --
-function RegenMagicka()
+local function isLoggedIn(player)
+    return player:IsLoggedIn()
+end
+
+local function getMagicka(pid)
+    return tes3mp.GetMagicka(pid)
+end
+
+local function OnServerPostInit()
     -- List of players connected:
-    local players = tes3mp.GetOnlinePlayerList()
+    players = tes3mp.GetOnlinePlayerList()
+end
+
+local function RegenMagicka(players)
     -- Browse the list of players:
     for _, pid in pairs(players) do
-        -- Obtain the player's current magicka:
-        local currentMagicka = tes3mp.GetMagicka(pid)
-        -- Increases the player's magicka by 'amount':
-        tes3mp.SetMagicka(pid, currentMagicka + amount)
+        -- Ensure that the player is connected and it is not an NPC:
+        local player = Players[pid]
+        if player and isLoggedIn(player) then
+            -- Obtain the player's current magicka:
+            local currentMagicka = getMagicka(pid)
+            local newMagicka = currentMagicka + amount
+            -- Increases the player's magicka by 'amount':
+            tes3mp.SetMagicka(pid, newMagicka)
+        end
     end
 end
+
+OnServerPostInit()
+
 -- Executes the function every certain time (defined in 'delay'):
-tes3mp.StartTimer(delay, "RegenMagicka")
+tes3mp.StartTimer(delay, function() RegenMagicka(players) end, players)
