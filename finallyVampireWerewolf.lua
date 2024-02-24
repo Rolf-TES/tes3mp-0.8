@@ -8,13 +8,13 @@ Installation Steps:
 2. Open your 'customScripts.lua' file ('server\scripts') in a text editor, and write on it the next line: require("custom/finallyVampireWerewolf")
 3. Save the changes and close it.
 --]]
---
+
 local vampire = true -- Set it to 'false' if you want no one becomes vampire through this script.
 local werewolf = true -- Set it to 'false' if you want no one becomes werewolf through this script.
 local vampire_talk = false -- Set this to 'true' if you want vampires can talk with everyone, but the sun damage that applies to them stops working.
---
+
 tableHelper = require("tableHelper")
---
+
 customEventHooks.registerValidator("OnPlayerCellChange", function(eventStatus, pid)
     local player = Players[pid]
     if player and player:IsLoggedIn() then
