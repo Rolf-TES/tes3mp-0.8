@@ -1,8 +1,8 @@
 --[[
 Writen by 'Rolf' for TES3MP 0.8.0 and 0.8.1.
 
-Description: Provides the capacity to adjust (cap or allow) attributes, skills and level to a certain number, due to the TES3MP configuration, that do not provide options to modify individually each thing i mentioned before.
-It does not level up characters, only establishes the level and points of all basic static aspects of a character, and checks to ensure that no one exceeds it.
+Description: Provides the capacity to adjust (cap or allow) attributes, skills and level to a certain number (TES3MP does not provide options to individually limit each one).
+Establishes the level and points of all basic static aspects of a character, and checks to prevent no one exceeds it.
 
 Installation Steps:
 1. Place this file inside 'server\scripts\custom' folder, located in your TES3MP installation directory.
@@ -12,7 +12,7 @@ Installation Steps:
 5. Save 'config.lua' and close it.
 --]]
 
--- Each one are the maximun number of levels that somebody can acquire, in an attribute, skill, or level of player. Also health, magicka and fatigue.
+-- Each one are the maximun number of levels somebody can acquire, in an attribute, skill, or player level. Also health, magicka and fatigue.
 local maxLevel = 200
 -- Stats:
 local maxHealth = 5000
