@@ -1,7 +1,7 @@
 --[[
-Writen by 'Rolf' to TES3MP 0.8.0 and 0.8.1.
+Writen by 'Rolf' for TES3MP 0.8.0 and 0.8.1.
 
-Description: Very simple script that constantly regenerates 1 point of magicka to all the players.
+Description: Very simple script that constantly regenerates 1 point of magicka to all players.
 
 Installation Steps:
 1. Place this file inside 'server\scripts\custom' folder, located in your TES3MP installation directory.
@@ -9,8 +9,8 @@ Installation Steps:
 3. Save the changes and close it.
 --]]
 --
-local delay = 1 -- Time delay in seconds. Make it larger or smaller to change to a slower or faster magicka regeneration respectively.
-local amount = 1 -- Amount in numbers of magicka that is added to the player's current magicka (quantity of regeneration).
+local delay = 1 -- Time delay in seconds. Make it larger or smaller to switch to slower or faster magicka regeneration respectively.
+local amount = 1 -- Numerical amount of magicka that is added to the player's current magicka (quantity of regeneration).
 local players = {}
 --
 local function isLoggedIn(player)
