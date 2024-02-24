@@ -12,7 +12,7 @@ Installation Steps:
 5. Save 'config.lua' and close it.
 --]]
 
--- Change any of the subsequent numbers. Each one are the maximun number of levels that somebody can acquire, in an attribute, skill, or level of player. Also health, magicka and fatigue.
+-- Each one are the maximun number of levels that somebody can acquire, in an attribute, skill, or level of player. Also health, magicka and fatigue.
 local maxLevel = 200
 -- Stats:
 local maxHealth = 5000
