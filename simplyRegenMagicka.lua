@@ -29,13 +29,13 @@ end
 local function RegenMagicka(players)
     -- Browse the list of players:
     for _, pid in pairs(players) do
-        -- Ensure that the player is connected and it is not an NPC:
+        -- Ensure the player is connected and is not an NPC:
         local player = Players[pid]
         if player and isLoggedIn(player) then
             -- Obtain the player's current magicka:
             local currentMagicka = getMagicka(pid)
             local newMagicka = currentMagicka + amount
-            -- Increases the player's magicka by 'amount':
+            -- Increases player's magicka by 'amount':
             tes3mp.SetMagicka(pid, newMagicka)
         end
     end
