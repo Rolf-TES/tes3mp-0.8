@@ -8,11 +8,11 @@ Installation Steps:
 2. Open your 'customScripts.lua' file ('server\scripts') in a text editor, and write on it the next line: require("custom/simplyRegenMagicka")
 3. Save the changes and close it.
 --]]
---
+
 local delay = 1 -- Time delay in seconds. Make it larger or smaller to switch to slower or faster magicka regeneration respectively.
 local amount = 1 -- Numerical amount of magicka that is added to the player's current magicka (quantity of regeneration).
 local players = {}
---
+
 local function isLoggedIn(player)
     return player:IsLoggedIn()
 end
