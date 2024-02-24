@@ -1,5 +1,5 @@
 # tes3mp-rolf
-A repository with my own scripts made to TES3MP 0.8.0 and 0.8.1.
+A repository with my own scripts made for TES3MP 0.8.0 and 0.8.1.
 
 Welcome, I am new at scripting, so try not to be too hard on me. If there are any errors you can suggest them or modify my own script, there is no problem,
 do whatever you want as long as you mention that the original work is mine.
