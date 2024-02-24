@@ -8,7 +8,7 @@ Installation Steps:
 1. Place this file inside 'server\scripts\custom' folder, located in your TES3MP installation directory.
 2. Open your 'customScripts.lua' file ('server\scripts') in a text editor, and write on it the next line: require("custom/charactersControl")
 3. Save the changes and close it.
-4. Before continuing, please note that, you have to modify the maximum values allowed in the base configuration of TES3MP ('config.lua' in 'server\scripts') if you want this script to overcome those limitations.
+4. Note that, you have to modify the maximum values allowed in the base configuration of TES3MP ('config.lua' in 'server\scripts') if you want this script to overcome those limitations.
 5. Save 'config.lua' and close it.
 --]]
 
